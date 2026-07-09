@@ -117,35 +117,35 @@
     <!-- Detail Dialog -->
     <q-dialog v-model="showDetail" maximized transition-show="slide-up" transition-hide="slide-down">
       <q-card v-if="selectedCandidate">
-        <q-card-section class="bg-primary text-white row items-center">
-          <div class="text-h6">Detail Kandidat — {{ selectedCandidate.cv_name }}</div>
+        <q-card-section class="bg-primary text-white row items-center q-py-sm">
+          <div class="text-subtitle1">Detail Kandidat — {{ selectedCandidate.cv_name }}</div>
           <q-space />
-          <q-btn flat round icon="close" color="white" v-close-popup />
+          <q-btn flat round icon="close" color="white" v-close-popup size="sm" />
         </q-card-section>
-        <q-card-section class="q-pa-lg" style="max-height: 80vh; overflow-y: auto;">
-          <div class="row q-col-gutter-md">
+        <q-card-section class="q-pa-md" style="max-height: 80vh; overflow-y: auto;">
+          <div class="row q-col-gutter-sm">
             <div class="col-12 col-md-6">
-              <div class="text-subtitle2 tw-font-bold tw-mb-2">Data Personal</div>
-              <q-list bordered separator class="tw-rounded-lg">
-                <q-item><q-item-section><q-item-label caption>Kode CV</q-item-label><q-item-label>{{ selectedCandidate.cv_code }}</q-item-label></q-item-section></q-item>
-                <q-item><q-item-section><q-item-label caption>KTP</q-item-label><q-item-label>{{ selectedCandidate.id_num }}</q-item-label></q-item-section></q-item>
-                <q-item><q-item-section><q-item-label caption>Nama</q-item-label><q-item-label>{{ selectedCandidate.cv_name }}</q-item-label></q-item-section></q-item>
-                <q-item><q-item-section><q-item-label caption>Gender</q-item-label><q-item-label>{{ selectedCandidate.cv_gender === 'M' ? 'Laki-laki' : 'Perempuan' }}</q-item-label></q-item-section></q-item>
-                <q-item><q-item-section><q-item-label caption>TTL</q-item-label><q-item-label>{{ selectedCandidate.cv_place }}, {{ selectedCandidate.cv_bod }}</q-item-label></q-item-section></q-item>
-                <q-item><q-item-section><q-item-label caption>Alamat</q-item-label><q-item-label>{{ selectedCandidate.cv_address }}</q-item-label></q-item-section></q-item>
-                <q-item><q-item-section><q-item-label caption>Telepon</q-item-label><q-item-label>{{ selectedCandidate.cv_telp }} / {{ selectedCandidate.cv_phone }}</q-item-label></q-item-section></q-item>
-                <q-item><q-item-section><q-item-label caption>Email</q-item-label><q-item-label>{{ selectedCandidate.cv_email }}</q-item-label></q-item-section></q-item>
-                <q-item><q-item-section><q-item-label caption>Source</q-item-label><q-item-label>{{ selectedCandidate.source }}</q-item-label></q-item-section></q-item>
+              <div class="text-caption tw-font-bold tw-mb-1">Data Personal</div>
+              <q-list bordered separator dense class="tw-rounded-lg">
+                <q-item dense><q-item-section><q-item-label caption class="text-caption">Kode CV</q-item-label><q-item-label class="text-body2">{{ selectedCandidate.cv_code }}</q-item-label></q-item-section></q-item>
+                <q-item dense><q-item-section><q-item-label caption class="text-caption">KTP</q-item-label><q-item-label class="text-body2">{{ selectedCandidate.id_num }}</q-item-label></q-item-section></q-item>
+                <q-item dense><q-item-section><q-item-label caption class="text-caption">Nama</q-item-label><q-item-label class="text-body2">{{ selectedCandidate.cv_name }}</q-item-label></q-item-section></q-item>
+                <q-item dense><q-item-section><q-item-label caption class="text-caption">Gender</q-item-label><q-item-label class="text-body2">{{ selectedCandidate.cv_gender === 'M' ? 'Laki-laki' : 'Perempuan' }}</q-item-label></q-item-section></q-item>
+                <q-item dense><q-item-section><q-item-label caption class="text-caption">TTL</q-item-label><q-item-label class="text-body2">{{ selectedCandidate.cv_place }}, {{ formatDob(selectedCandidate.cv_bod) }}</q-item-label></q-item-section></q-item>
+                <q-item dense><q-item-section><q-item-label caption class="text-caption">Alamat</q-item-label><q-item-label class="text-body2">{{ selectedCandidate.cv_address }}</q-item-label></q-item-section></q-item>
+                <q-item dense><q-item-section><q-item-label caption class="text-caption">Telepon</q-item-label><q-item-label class="text-body2">{{ selectedCandidate.cv_telp }} / {{ selectedCandidate.cv_phone }}</q-item-label></q-item-section></q-item>
+                <q-item dense><q-item-section><q-item-label caption class="text-caption">Email</q-item-label><q-item-label class="text-body2">{{ selectedCandidate.cv_email }}</q-item-label></q-item-section></q-item>
+                <q-item dense><q-item-section><q-item-label caption class="text-caption">Source</q-item-label><q-item-label class="text-body2">{{ selectedCandidate.source }}</q-item-label></q-item-section></q-item>
               </q-list>
             </div>
             <div class="col-12 col-md-6">
-              <div class="text-subtitle2 tw-font-bold tw-mb-2">Prioritas & Pendidikan</div>
-              <q-list bordered separator class="tw-rounded-lg">
-                <q-item><q-item-section><q-item-label caption>Priority 1</q-item-label><q-item-label>{{ selectedCandidate.priority_1 }}</q-item-label></q-item-section></q-item>
-                <q-item><q-item-section><q-item-label caption>Priority 2</q-item-label><q-item-label>{{ selectedCandidate.priority_2 }}</q-item-label></q-item-section></q-item>
-                <q-item><q-item-section><q-item-label caption>Priority 3</q-item-label><q-item-label>{{ selectedCandidate.priority_3 }}</q-item-label></q-item-section></q-item>
-                <q-item><q-item-section><q-item-label caption>Pendidikan 1</q-item-label><q-item-label>{{ selectedCandidate.edu_school1 }} ({{ selectedCandidate.edu_degree1 }}) — {{ selectedCandidate.edu_jurusan1 }}</q-item-label></q-item-section></q-item>
-                <q-item><q-item-section><q-item-label caption>Pengalaman Kerja</q-item-label><q-item-label>{{ selectedCandidate.exp_pt }} — {{ selectedCandidate.exp_posisi }}</q-item-label></q-item-section></q-item>
+              <div class="text-caption tw-font-bold tw-mb-1">Prioritas & Pendidikan</div>
+              <q-list bordered separator dense class="tw-rounded-lg">
+                <q-item dense><q-item-section><q-item-label caption class="text-caption">Priority 1</q-item-label><q-item-label class="text-body2">{{ selectedCandidate.priority_1 }}</q-item-label></q-item-section></q-item>
+                <q-item dense><q-item-section><q-item-label caption class="text-caption">Priority 2</q-item-label><q-item-label class="text-body2">{{ selectedCandidate.priority_2 }}</q-item-label></q-item-section></q-item>
+                <q-item dense><q-item-section><q-item-label caption class="text-caption">Priority 3</q-item-label><q-item-label class="text-body2">{{ selectedCandidate.priority_3 }}</q-item-label></q-item-section></q-item>
+                <q-item dense><q-item-section><q-item-label caption class="text-caption">Pendidikan 1</q-item-label><q-item-label class="text-body2">{{ selectedCandidate.edu_school1 }} ({{ selectedCandidate.edu_degree1 }}) — {{ selectedCandidate.edu_jurusan1 }}</q-item-label></q-item-section></q-item>
+                <q-item dense><q-item-section><q-item-label caption class="text-caption">Pengalaman Kerja</q-item-label><q-item-label class="text-body2">{{ selectedCandidate.exp_pt }} — {{ selectedCandidate.exp_posisi }}</q-item-label></q-item-section></q-item>
               </q-list>
             </div>
           </div>
@@ -171,8 +171,10 @@ const showDetail = ref(false);
 const selectedCandidate = ref(null);
 const priorityFilterOptions = ref([]);
 
+const today = new Date().toISOString().split('T')[0];
+
 const filters = reactive({
-  ktp: '', gender: '', priority_1: '', apply_start: '', apply_end: ''
+  ktp: '', gender: '', priority_1: '', apply_start: today, apply_end: today
 });
 
 const pagination = ref({ sortBy: 'cv_date', descending: true, page: 1, rowsPerPage: 25 });
@@ -228,6 +230,16 @@ const resetFilters = () => {
 };
 
 const viewDetail = (row) => { selectedCandidate.value = row; showDetail.value = true; };
+
+const formatDob = (val) => {
+  if (!val) return '';
+  const d = new Date(val);
+  if (isNaN(d.getTime())) return val;
+  const dd = String(d.getDate()).padStart(2, '0');
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const yyyy = d.getFullYear();
+  return `${dd}-${mm}-${yyyy}`;
+};
 
 const downloadCV = (filename) => {
   if (!filename) return;

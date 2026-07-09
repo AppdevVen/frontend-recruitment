@@ -11,11 +11,11 @@
     <div style="width:100%;padding:16px;margin-top:auto;"><img src="/images/footer-dbc-group.png" style="width:100%" /></div>
   </div>
   <div v-else-if="periodOpen" class="container-fluid">
-    <div class="page-header">
+    <div class="page-header" style="background:#333;padding:16px;color:#fff;">
       <div class="row">
-        <div class="col-sm-3"><center><img src="/images/dbc-blue.png" style="max-width:70%" /></center></div>
-        <div class="col-sm-9"><br><p style="font-weight:bold;text-align:center;margin-bottom:-1px;">DBC</p>
-          <p style="text-align:center;">Group Market Leader of Building Materials Industry with leading brands in Indonesia<br>Provides an opportunity for superior individuals to join us.</p></div>
+        <div class="col-sm-3" style="display:flex;align-items:center;justify-content:center;"><img src="/images/dbc-blue.png" style="max-height:90px;" /></div>
+        <div class="col-sm-9" style="display:flex;flex-direction:column;justify-content:center;"><p style="font-weight:bold;text-align:center;margin-bottom:2px;color:#fff;">DBC</p>
+          <p style="text-align:center;color:#fff;margin:0;">Group Market Leader of Building Materials Industry with leading brands in Indonesia<br>Provides an opportunity for superior individuals to join us.</p></div>
       </div>
     </div>
     <div style="border:1px solid rgb(247,62,31);padding:16px;">
@@ -76,7 +76,7 @@ const calcAge = () => { if(!form.dob){form.age='';return;} form.age=String(new D
 const onFile = (e) => { cvFile.value = e.target.files[0]||null; };
 const resetForm = () => { Object.keys(form).forEach(k=>{if(k!=='position')form[k]='';}); cvFile.value=null; disclaimer.value=false; if(fileRef.value)fileRef.value.value=''; };
 const checkPeriod = async () => { try { const r=await axios.get(`${import.meta.env.VITE_API}recruitment/periods/status`); periodOpen.value=r.data.data.is_open; } catch{periodOpen.value=false;} finally{loadingPeriod.value=false;} };
-const loadPriorities = async () => { try { const r=await axios.get(`${import.meta.env.VITE_API}recruitment/priorities?active=1`); priorities.value=r.data.data; } catch{} };
+const loadPriorities = async () => { console.log(import.meta.env.VITE_API); try { const r=await axios.get(`${import.meta.env.VITE_API}recruitment/priorities?active=1`); priorities.value=r.data.data; } catch{} };
 const onSubmit = async () => { if(!disclaimer.value){alert('You must agree the disclaimer first.');return;} if(!form.id_num){alert('KTP number must be filled in');return;} submitting.value=true; try { const fd=new FormData(); Object.entries(form).forEach(([k,v])=>fd.append(k,v||'')); if(cvFile.value)fd.append('file_cv',cvFile.value); await axios.post(`${import.meta.env.VITE_API}recruitment/candidates`,fd,{headers:{'Content-Type':'multipart/form-data'}}); alert('Registration Successful'); resetForm(); } catch(e){ alert(e.response?.data?.message||'Registration Failed'); } finally{submitting.value=false;} };
 onMounted(()=>{checkPeriod();loadPriorities();});
 </script>
