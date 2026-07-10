@@ -264,21 +264,8 @@ const currentRoute = computed(() => {
     });
 
 const drawerHeaderStyle = computed(() => {
-  const domainColors = {
-    '100': 'linear-gradient(135deg, #003399 0%, #00b2e3 100%)',
-    '110': 'linear-gradient(135deg, #003399 0%, #00b2e3 100%)',
-    '200': 'linear-gradient(135deg, #003b7b 0%, #231f20 100%)',
-    '210': 'linear-gradient(135deg, #003b7b 0%, #231f20 100%)',
-    '800': 'linear-gradient(135deg, #ee4034 0%, #BABCBE 100%)',
-    '130': 'linear-gradient(135deg, #ee4034 0%, #BABCBE 100%)',
-    '700': 'linear-gradient(135deg, #ee4034 0%, #BABCBE 100%)',
-    '120': 'linear-gradient(135deg, #ef4123 0%, #4d5e6c 100%)',
-    '300': 'linear-gradient(135deg, #A8479A 0%, #5BAF42 100%)',
-    '320': 'linear-gradient(135deg, #A8479A 0%, #5BAF42 100%)'
-  };
-  
   return {
-    background: domainColors[Domain.value] || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+    background: 'linear-gradient(135deg, #1565C0 0%, #0D47A1 100%)'
   };
 });
 
@@ -347,21 +334,8 @@ const filteredDomains = computed(() => {
 });
 
 const iconBubbleStyle = computed(() => {
-  const domainColors = {
-    '100': 'linear-gradient(135deg, #003399, #00b2e3)',
-    '110': 'linear-gradient(135deg, #003399, #00b2e3)',
-    '200': 'linear-gradient(135deg, #003b7b, #231f20)',
-    '210': 'linear-gradient(135deg, #003b7b, #231f20)',
-    '800': 'linear-gradient(135deg, #ee4034, #ff6b6b)',
-    '130': 'linear-gradient(135deg, #ee4034, #ff6b6b)',
-    '700': 'linear-gradient(135deg, #ee4034, #ff6b6b)',
-    '120': 'linear-gradient(135deg, #ef4123, #ff6b6b)',
-    '300': 'linear-gradient(135deg, #A8479A, #5BAF42)',
-    '320': 'linear-gradient(135deg, #A8479A, #5BAF42)'
-  };
-  
   return {
-    background: domainColors[Domain.value] || 'linear-gradient(135deg, #ee4034, #ff6b6b)'
+    background: 'linear-gradient(135deg, #1565C0, #42A5F5)'
   };
 });
 
@@ -404,27 +378,8 @@ const setDomain = async (value) => {
 };
 
 const setHeaderFooter = () => {
-  if (Domain.value == '100'||Domain.value == '110'){
-    // Header.value='tw-bg-[#003399]'
-    Header.value=`tw-bg-[url('/bg/wdjr.svg')] tw-h-24`
-    Footer.value='tw-bg-gradient-to-r tw-from-[#00b2e3] tw-to-[#231F20]'
-  }else if (Domain.value == '200' || Domain.value == '210'){
-    //Header.value='tw-bg-[#003b7b]'
-    Header.value=`tw-bg-[url('/bg/djm.svg')] tw-h-24`
-    Footer.value='tw-bg-[#231f20]'
-  }else if (Domain.value == '800'){
-    //Header.value='tw-bg-[#ee4034]'
-    Header.value=`tw-bg-[url('/bg/dbc.svg')] tw-h-24`
-    Footer.value='tw-bg-gradient-to-r tw-from-[#BABCBE] tw-to-[#231F20]'
-  }else if (Domain.value == '300'){
-    // Header.value='tw-bg-[#A8479A]'
-    Header.value=`tw-bg-[url('/bg/rbg.svg')] tw-h-24`
-    Footer.value='tw-bg-gradient-to-r tw-from-[#5BAF42] tw-to-[#231F20]'
-  }else{
-    //Header.value='tw-bg-[#ef4123]'
-    Header.value=`tw-bg-[url('/bg/dbc.svg')] tw-h-24`
-    Footer.value='tw-bg-gradient-to-r tw-from-[#4d5e6c] tw-to-[#1b323e]'
-  }
+  Header.value='tw-bg-[#1565C0] tw-h-24'
+  Footer.value='tw-bg-gradient-to-r tw-from-[#1565C0] tw-to-[#0D47A1]'
 }
 
 const getSite = async () => {

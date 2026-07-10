@@ -57,7 +57,7 @@
           unelevated 
           label="Logout" 
           icon="logout" 
-          color="red-6" 
+          color="blue-6" 
           @click="handleLogout" 
           class="tw-w-full tw-font-semibold tw-rounded-lg" 
         />

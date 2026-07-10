@@ -164,7 +164,7 @@
                 <q-btn 
                   round
                   dense
-                  color="purple-7"
+                  color="blue-7"
                   size="sm"
                   class="tw-mr-1 tw-shadow-md hover:tw-shadow-lg hover:tw-scale-110 tw-transition-all"
                   @click="grantRole(props.row)"

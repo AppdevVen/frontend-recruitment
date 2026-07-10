@@ -7,7 +7,7 @@
           <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 32px;">
             <img src="/images/dbc-blue.png" style="max-width: 120px; margin-bottom: 16px;" alt="DBC Logo" />
             <h1 style="font-size: 20px; font-weight: 700; color: #1f2937; margin: 0;">Recruitment Management</h1>
-            <p style="font-size: 14px; color: #6b7280; margin-top: 4px;">PT Daya Bakti Cemerlang</p>
+            <p style="font-size: 14px; color: #6b7280; margin-top: 4px;"></p>
           </div>
 
           <!-- Login Form -->

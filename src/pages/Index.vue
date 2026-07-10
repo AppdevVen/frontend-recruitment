@@ -16,7 +16,7 @@
               <q-icon name="waving_hand" size="40px" class="tw-text-yellow-300" />
               <div>
                 <div class="tw-text-white tw-text-2xl tw-font-bold">Selamat Datang, {{ userName }}!</div>
-                <div class="tw-text-blue-100 tw-text-sm tw-mt-1">Recruitment Management System — PT Daya Bakti Cemerlang</div>
+                <div class="tw-text-blue-100 tw-text-sm tw-mt-1">Recruitment Management System</div>
               </div>
             </div>
           </q-card-section>
@@ -108,7 +108,7 @@
                 <q-input v-model="filters.apply_end" label="Sampai Tanggal" outlined dense type="date" />
               </div>
               <div class="col-12 col-md-2 tw-flex tw-gap-2">
-                <q-btn unelevated color="warning" icon="filter_alt" label="Filter" @click="loadCandidates" class="tw-flex-1" />
+                <q-btn unelevated color="purple" icon="filter_alt" label="Filter" @click="loadCandidates" class="tw-flex-1" />
                 <q-btn flat color="grey" icon="restart_alt" @click="resetFilters">
                   <q-tooltip>Reset Filter</q-tooltip>
                 </q-btn>
@@ -122,8 +122,8 @@
               <span class="tw-text-sm tw-text-gray-500">Total: {{ dataList.length }} kandidat</span>
               <div class="tw-flex tw-gap-2 tw-items-center">
                 <q-badge v-if="pendingEmail > 0" color="orange" :label="`${pendingEmail} pending`" class="tw-mr-2" />
-                <q-btn unelevated color="orange-7" icon="send" label="Kirim Semua Email" @click="confirmSendAll" :disable="pendingEmail === 0" :loading="sendingAll" />
-                <q-btn unelevated color="green-7" icon="download" label="Export Excel" @click="exportExcel" :disable="dataList.length === 0" />
+                <q-btn unelevated color="red-7" icon="send" label="Kirim Semua Email" @click="confirmSendAll" :disable="pendingEmail === 0" :loading="sendingAll" />
+                <q-btn unelevated color="blue-7" icon="download" label="Export Excel" @click="exportExcel" :disable="dataList.length === 0" />
               </div>
             </div>
           </q-card-section>
