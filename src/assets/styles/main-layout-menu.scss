@@ -42,6 +42,21 @@
         color: #3b82f6;
       }
     }
+    
+    &.menu-item-active {
+      background: linear-gradient(135deg, #1565C0, #1E88E5);
+      color: white;
+      box-shadow: 0 8px 25px rgba(21, 101, 192, 0.3);
+      
+      .menu-text {
+        color: white !important;
+      }
+      
+      .menu-icon {
+        color: white;
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
   }
   
   .menu-icon-section {
@@ -146,9 +161,9 @@
   }
   
   &.menu-child-active {
-    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    background: linear-gradient(135deg, #1565C0, #1E88E5);
     color: white;
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 8px 25px rgba(21, 101, 192, 0.3);
     
     &::before {
       height: 80%;
@@ -156,7 +171,7 @@
     }
     
     .child-icon, .child-text {
-      color: white;
+      color: white !important;
     }
   }
 }

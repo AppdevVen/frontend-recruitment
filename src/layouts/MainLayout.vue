@@ -168,7 +168,7 @@
           <q-list v-else class="modern-menu-list">
             <template v-for="(menuItem, index) in filteredMenu" :key="index">
               <div v-if="menuItem.children.length == 0">
-                <q-item clickable :to="menuItem.link?.startsWith('/') ? menuItem.link : '/' + menuItem.link" class="menu-item" :class="[`menu-item-domain-${Domain}`, $q.dark.mode ? 'bg-blue-grey-9 text-black' : `side-${Domain}-1`]">
+                <q-item clickable :to="menuItem.link?.startsWith('/') ? menuItem.link : '/' + menuItem.link" class="menu-item" :class="[`menu-item-domain-${Domain}`, $q.dark.mode ? 'bg-blue-grey-9 text-black' : `side-${Domain}-1`, currentRoute === (menuItem.link?.startsWith('/') ? menuItem.link : '/' + menuItem.link) ? 'menu-item-active' : '']">
                   <q-item-section avatar class="menu-icon-section">
                     <q-icon :name="menuItem.icon || 'circle'" class="menu-icon" :style="iconBubbleStyle" />
                   </q-item-section>
@@ -198,7 +198,7 @@
                         <q-icon :name="menuItemChild.icon || 'chevron_right'" class="child-icon" :style="iconBubbleStyle" />
                       </q-item-section>
                       <q-item-section>
-                        <span class="child-text text-dark" v-html="highlightText(menuItemChild.name)"></span>
+                        <span class="child-text" v-html="highlightText(menuItemChild.name)"></span>
                       </q-item-section>
                     </q-item>
                   </template>
